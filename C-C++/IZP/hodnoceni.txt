@@ -1,4 +1,4 @@
-1. 2/5 b - napycu
-2. 5.5/10 b - nekvalitni kod, neexektivni
+1. 2/5 b - no comment
+2. 5.5/10 b - nekvalitni kod, ne-exektivni
 3. 8/10 b +1 - opakovani kodu
 4. 7/8 b +1 - netiskne 1. radek (v testu)                                      
