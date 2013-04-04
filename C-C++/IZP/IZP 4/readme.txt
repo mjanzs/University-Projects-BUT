@@ -1,0 +1,1 @@
+program obsahuje premiove reseni --usort
