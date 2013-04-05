@@ -1,0 +1,25 @@
+.title-view div {
+    margin: 5px;
+}
+
+.title-view {
+    min-height: 200px;
+}
+
+.title-name a {
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 200%;
+}
+
+.title-picture {
+    height: 0;
+}
+
+.title-picture img {
+    height: 180px;
+    width: 130px;
+
+    margin-top: -123px;
+    margin-left: 510px;
+}
