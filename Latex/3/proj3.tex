@@ -1,0 +1,324 @@
+
+\documentclass[11pt, a4paper, titlepage]{article}
+
+\usepackage[czech]{babel}
+\usepackage[latin2]{inputenc}
+%\usepackage{czech}
+\usepackage[ruled, czech, longend]{algorithm2e}
+%\usepackage{algorithmic}
+\usepackage[left=2cm,text={17cm, 25cm},top=3cm]{geometry}
+%\usepackage[IL2]{fontenc}
+\usepackage{graphicx}
+
+\usepackage{times}
+%macra
+%\newcommand {\uv}[1]{\quotedblbase #1\textquotedblleft}
+
+%doc
+\begin{document}
+\begin{titlepage}
+
+	\begin{center}
+	\textsc{{\Huge Vysoké uèní technické v~Brnì}\\
+		\BlankLine
+		{\huge Fakulta informaèních technologií}}\\
+		\vspace{\stretch{0.382}}
+		 \LARGE{Typografie a publikování\,--\,3. projekt}\\
+		\Huge{Tabulky a obrázky}
+		\vspace{\stretch{0.618}} 
+	\end{center}
+	{\Large \today  \hfill Martin Jany¹}
+
+\end{titlepage}
+
+\section{Tabulky}
+
+Pro sázení tabulek mù¾eme pou¾ít buï prostøedí \texttt{tabbing} nebo prostøedí \texttt{tabular}.
+
+\subsection{Prostøedí \texttt{tabbing}}
+Pøi pou¾ití \texttt{tabbing} vypadá tabulka následovnì:
+    \begin{tabbing}
+    Vodní melouny ----\= cena ---  \= Mno¾ství \kill
+    {\bf Ovoce} \>  {\bf Cena} \> {\bf Mno¾ství} \\
+    Jablka \> 25,90 \> 3 kg \\
+    Hru¹ky \> 27,40 \> 2,5 kg\\
+    Vodní melouny \> 35,-- \> 1 kus
+    \end{tabbing}
+
+\noindent
+Toto prostøedí se dá také pou¾ít pro sázení algoritmù, ov¹em vhodnìj¹í je pou¾ít 
+prostøedí \texttt{algorithm} nebo \texttt{algorithm2e} (viz sekce \ref{sekce2}).
+
+\subsection{Prostøedí \texttt{tabular}}
+Dal¹í mo¾ností jak vytvoøit tabulku je pou¾ít prostøedí \texttt{tabular}. Tabulky pak budou vypadat takto:
+\begin{table}[h]
+\catcode`\-=12
+  \begin{center}
+  \begin{tabular}{| l | r | r |}
+  \hline
+	& \multicolumn{2}{c |}{\bf Cena} \\
+  \cline{2-3}
+  {\bf Mìna}	& {\bf nákup}	& {\bf prodej} \\
+  \hline
+  EUR		& 25,501	& 24,324 \\
+  JPY		& 105,484	& 105,847 \\
+  USD		& 16,632	& 16,328 \\
+  \hline
+  \end{tabular}
+  \caption{Tabulka kurzù k~dne¹nímu dni}\label{tab1}
+  \end{center}
+
+\end{table}
+
+\begin{table}[h!]
+\catcode`\-=12
+\begin{center}
+  \begin{tabular}{| c | c |}
+  \hline
+  $A$ 	& $\neg A$ \\
+  \hline
+  {\bf P} & N \\
+  \hline
+  {\bf X} & X\\
+  \hline
+  {\bf N} & P\\
+  \hline  
+  \end{tabular}
+  \begin{tabular}{| c  c | c c c |}
+\hline
+  		&				&			& $B$					&		\\
+\cline{3-5}
+ \multicolumn{2}{| c |}{$A\land B$} 		& {\bf P}		& \multicolumn{1}{ | c | }{\bf X}	& {\bf N}	\\
+\hline
+  		& \multicolumn{1}{ | c | }{\bf P} & P			& \multicolumn{1}{ | c | }{X} 		& N 		\\
+\cline{2-5}
+  A~& \multicolumn{1}{ | c | }{\bf X} & X 			& \multicolumn{1}{ | c | }{X} 		& X 		\\
+\cline{2-5}
+  		& \multicolumn{1}{ | c | }{\bf N} & N 			& \multicolumn{1}{ | c | }{N} 		&  N 		\\
+\hline
+  \end{tabular}
+  \begin{tabular}{| c  c | c c c |}
+\hline
+  		&				&			& $B$					&		\\
+\cline{3-5}
+ \multicolumn{2}{| c |}{$A\vee B$} 		& {\bf P}		& \multicolumn{1}{ | c | }{\bf X}	& {\bf N}	\\
+\hline
+  		& \multicolumn{1}{ | c | }{\bf P} & P			& \multicolumn{1}{ | c | }{P} 		& P 		\\
+\cline{2-5}
+  A~& \multicolumn{1}{ | c | }{\bf X} & P 			& \multicolumn{1}{ | c | }{X} 		& X 		\\
+\cline{2-5}
+  		& \multicolumn{1}{ | c | }{\bf N} & P 			& \multicolumn{1}{ | c | }{X} 		&  N 		\\
+\hline
+  \end{tabular}
+  \begin{tabular}{| c  c | c c c |}
+\hline
+  		&				&			& $B$					&		\\
+\cline{3-5}
+ \multicolumn{2}{| c |}{$A\rightarrow B$} 	& {\bf P}		& \multicolumn{1}{ | c | }{\bf X}	& {\bf N}	\\
+\hline
+  		& \multicolumn{1}{ | c | }{\bf P} & P			& \multicolumn{1}{ | c | }{X} 		& N 		\\
+\cline{2-5}
+  A~& \multicolumn{1}{ | c | }{\bf X} & P 			& \multicolumn{1}{ | c | }{X} 		& X 		\\
+\cline{2-5}
+  		& \multicolumn{1}{ | c | }{\bf N} & P 			& \multicolumn{1}{ | c | }{P} 		&  P 		\\
+\hline
+  \end{tabular}
+\caption{Kleeneho trojhodnotová logika}\label{tab2}
+\end{center}  
+\end{table}
+
+
+\section{Algoritmy}\label{sekce2}
+Pokud budeme chtít vysázet algoritmus, mù¾eme pou¾ít prostøedí \texttt{algorithm} nebo \texttt{algorithm2e}.
+Pøíklad pou¾ití prostøedí \texttt{algorithm2e} viz Algoritmus \ref{alg1}.
+\bigskip
+
+Pro nápovìdu, jak zacházet s~prostøedím \texttt{algorithm} mù¾eme zkusit tuhle stránku:\\
+http://ftp.cstug.cz/pub/tex/CTAN/macros/latex/contrib/algorithms/algorithms.pdf.\\
+Pro \texttt{algorithm2e} zase tuhle:\\
+http://www-hep2.fzu.cz/tex/texmf-dist/doc/latex/algorithm2e/algorithm2e.pdf.
+
+\begin{algorithm}[h]
+\label{alg1}
+\caption{$Particlefilter$}
+\KwIn{ Mno¾ina èástic $X$ v~èase $t-1$, øízení $u$ v~èase $t$ a mìøení $z$ v~èase $t.$}
+\KwOut{Mno¾ina èástic $X$ v~èase $t$, $\overline{X_t} = X_t = 0$}
+\BlankLine
+\Indp{
+\For{ $m = 0$ \textup{to} $M$ }{
+	sample $x^{[m]}_t \approx p(x_t\ |\ u_t,x^{[m]}_{t-1}$ )\\
+	$\omega^{[m]}_t = p(z_t\ |\ x^{[m]}_t)$ \\
+	$\overline{X_t} = \overline{X_t} + \langle x^{[m]}_t,\omega^{[m]}_t \rangle$
+}
+
+\For{ $m = 1$ \textup{to} $M$ }{
+	draw $i$ with probability $\approx \omega^{[i]}_t$ \\
+	add $x^{[i]}_t$ to $X_t$ \\
+}
+\Return{$X_t$}
+\BlankLine
+}
+
+%  	{\bf Input}: Mno¾ina èástic $X$ v èase $t-1$, øízení $u$ v èase $t$ a mìøení $z$ v èase $t.$\\
+%  	{\bf Output}: Mno¾ina èástic $X$ v èase $t$, $\overline{X_t} = X_t = 0$\\
+
+%\begin{algorithmic}
+%\For{ $m = 0$ to $M$ }
+%sds
+%}
+%\STATE sample $x^{[m]}_t \approx p(x_t\ |\ u_t,x^{[m]}_{t-1}$
+%\STATE $\omega^{[m]}_t = p(z_t\ |\ x^{[m]}_t)$
+%\STATE $\overline{X_t} = \overline{X_t} + \langle x^{[m]}_t,\omega^{[m]}_t \rangle$
+%\ENDFOR
+%\FOR{$m = 1$ \TO $M$}
+%\STATE $i$ with probability $\approx \omega^{[i]}_t$
+%\STATE add $x^{[i]}_t$ to $X_t$
+%\STATE $\overline{X_t} = \overline{X_t} + \langle x^{[m]}_t,\omega^{[m]}_t \rangle$
+%\ENDFOR
+%\RETURN $X_t$
+%\end{algorithmic}
+\end{algorithm}
+
+\newpage
+\section{Obrázky}
+Do na¹ich èlánkù mù¾eme samozøejmì vkládat obrázky. Pokud je obrázkem fotografie,
+mù¾eme klidnì pou¾ít bitmapový soubor. Pokud by to ale mìlo být nìjaké schéma nebo
+nìco podobného, je dobrým zvykem takovýto obrázek vytvoøit vektorovì.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.4]{etiopan.eps}\hspace{0.5mm}\reflectbox{\includegraphics[scale=0.4]{etiopan.eps}}
+\end{center}
+\caption{Malý etiopanek a jeho bratøíèek}\label{obr1}
+\end{figure}
+
+\newpage
+Rozdil mezi vektorovým\,\dots \\
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=8cm]{oniisan.eps}
+\end{center}
+\caption{Vektorový obrázek}\label{obr2}
+\end{figure}
+
+\noindent
+\dots a bitmapovým obrázkem se projeví napøíklad pøi zvìt¹ení
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=8cm]{oniisan2.eps}
+\end{center}
+\caption{Bitmapový obrázek}\label{obr3}
+\end{figure}
+
+\noindent
+Tyto odkazy (nejen ty) na obrázky \ref{obr1}, \ref{obr2} a \ref{obr3}, na  
+tabulky \ref{tab1} a \ref{tab2} a také na algoritmus \ref{alg1} jsou udìlány pomocí 
+køí¾ových odkazù. Pak je ov¹em potøeba zdrojový soubor pøelo¾it dvakrát.\newpage
+
+\newpage
+\begin{figure}[p]
+\begin{center}
+ \setlength{\unitlength}{1.35652mm}
+\begin{picture}(115,158.5)
+%okraj
+\linethickness{1.2pt} 
+
+\put(0,0){\line(0,1){158.5}}
+\put(115,0){\line(0,1){158.5}}
+\put(0,158.5){\line(1,0){115}}
+\put(0,0){\line(1,0){115}}
+
+\thinlines
+%carkovane
+\multiput(15,158.5)(0,-10){16}{\line(0,-10){7}}
+\multiput(0,144)(10,0){11}{\line(10,0){7}}
+%text
+\put(0,94){\small Mezera = 15}
+
+\put(50,4){\small ©íøka stránky = 115}
+
+\put(90,150){\shortstack{\small Vý¹ka\\
+\small mezery = 14,5}}
+
+\put(90,137){\shortstack{\small Vý¹ka\\
+\small mezery = 10}}
+
+\put(90,127){\shortstack{\small Vý¹ka\\
+\small hlavièky = 10}}
+
+\put(90,115){\shortstack{\small Vý¹ka \\
+\small mezery = 14}}
+
+\put(90,65){\shortstack{\small Vý¹ka\\
+\small tìla = 75}}
+
+\put(90,25){\shortstack{\small Vý¹ka\\
+\small mezery = 15}}
+
+\put(90,12){\shortstack{\small Vý¹ka\\
+\small paty = 10}}
+
+\put(97,94){\shortstack{\small ©íøka \\
+\small boxu = 15}}
+
+\put(92,103){\small Mezera = 9}
+
+\put(93,54){\shortstack{\small  Vý¹ka\\
+\small stránky = 158,5}}
+
+\put(49,137){\small ©íøka boxu = 55}
+%sipky
+\put(0,93){\vector(1,0){15}}
+\put(15,93){\vector(-1,0){15}}
+
+\put(86,93){\vector(1,0){9}}
+\put(95,93){\vector(-1,0){9}}
+
+\put(95,93){\vector(1,0){15}}
+\put(110,93){\vector(-1,0){15}}
+%dlouha
+\put(0,3){\vector(1,0){115}}
+\put(115,3){\vector(-1,0){115}}
+%dlouha
+\put(112,0){\vector(0,1){158.5}}
+\put(112,158.5){\vector(0,-1){158.5}}
+%sipky svisle zasebou start
+\put(88,158.5){\vector(0,-1){14.5}}
+\put(88,144){\vector(0,1){14.5}}
+
+\put(88,144){\vector(0,-1){10}}
+\put(88,134){\vector(0,1){10}}
+
+\put(88,134){\vector(0,-1){10}}
+\put(88,124){\vector(0,1){10}}
+
+\put(88,124){\vector(0,-1){14}}
+\put(88,110){\vector(0,1){14}}
+
+\put(88,110){\vector(0,-1){75}}
+\put(88,35){\vector(0,1){75}}
+
+\put(88,35){\vector(0,-1){15}}
+\put(88,20){\vector(0,1){15}}
+
+\put(88,20){\vector(0,-1){10}}
+\put(88,10){\vector(0,1){10}}
+%end
+\put(95,102){\vector(-1,-3){3}}
+
+\put(31,136){\vector(1,0){55}}
+\put(86,136){\vector(-1,0){55}}
+%sikma 1 1
+\put(103,60){\vector(1,1){9}}
+%boxy
+\put(31,35){\framebox(55,75){\bf Textové tìlo}}
+\put(31,124){\framebox(55,10){\bf Hlavièka}}
+\put(31,10){\framebox(55,10){\bf Pata}}
+\put(95,81){\framebox(15,10){\shortstack{\small \bf Okrajová \\
+\bf poznamka}}}
+\end{picture}
+\caption{Vektorový obrázek v~prostøedí \texttt{picture}}
+\end{center}
+\end{figure}
+
+\end{document}

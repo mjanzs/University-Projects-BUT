@@ -1,0 +1,32 @@
+\documentclass[10pt, a4paper, final]{article}
+\usepackage{czech}
+\usepackage[latin2]{inputenc}
+\usepackage{times}
+
+%\usepackage[left=2cm,text={17cm, 25cm},top=3cm]{geometry}
+
+\usepackage{url}
+\DeclareUrlCommand\url{\def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}}
+
+\title{Typografie a publikování\\4. projekt}
+\author{Martin Jany¹\\xjanys00@stud.fit.vutbr.cz}
+\date{\today} 
+
+%doc
+\begin{document}
+	
+\maketitle
+
+Tento text má za úkol èásteènì projít problematiku typografie a zejména odkázat na zdroje, kde lze najít dal¹í informace.
+
+Jedním z~vhodných zdrojù pro tvorbu dokumentu v~\LaTeX{u} mù¾e být kniha \cite{Rybicka:Latex_pro_zacatecniky}. Pokud budeme hledat obsáhlej¹í zdroj, existuje mnoho pøekladù vycházejících z~anglické knihy \cite{Knuth:Texbook}. Dal¹ími èeskými zdroji mohou být dokumenty dostupné v~elektronické podobì jako napøíklad \cite{Sadovsky:Latex} èi \cite{Oetiker:Latex}. Pro úplné zaèáteèníky by bylo vhodné se s~prostøedím nástroje pro sazbu textu \LaTeX{} v~\cite{Brabec:Tex}.
+
+Se znalostmi, jak pou¾ívat systém \LaTeX, mù¾eme zaèít s~tvorbou dokumentu. Nemìli bychom v¹ak zapomínat na zásady správné typografie jako je správné rozmístìní textu èi obrázkù. Nìkteré vìci, které je nutno znát, jsou uvedeny zde\cite{Olsavsky:Zaklady}. V~èlánku \cite{Dero:Fonty} je mo¾né získat struèné informace o~fontech, které je mo¾né pou¾ívat. Mimo fontù se vyvíjí i písmo samotné viz. \cite{Typo:Nova_pisma}.
+
+\LaTeX{} je prostøedí vhodné pro sazbu matematických textù a naopak se nehodí pro sazbu tabulek, které jsou znaènì obtí¾nìj¹í ne¾ v~WYSIWYG editorech. Tvorba obrázkù je obtí¾ná, ale výsledek pùsobí profesionálním dojmem. Jak na tvorbu matematického textu, se mù¾eme doèíst v~práci \cite{Stary:Mat_sazba}. Pokud budeme chtít nakreslít obrázek \cite{Marek:Kresleni} nám mù¾e poskytnout potøebné informace.
+\newpage
+
+\bibliographystyle{czechiso}
+\def\refname{Literatura}
+\bibliography{bib1}
+\end{document}
