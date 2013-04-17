@@ -1,1 +1,0 @@
-program obsahuje premiove reseni --extbubbles.
