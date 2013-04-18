@@ -1,0 +1,1 @@
+Part of my work on project to IFJ
